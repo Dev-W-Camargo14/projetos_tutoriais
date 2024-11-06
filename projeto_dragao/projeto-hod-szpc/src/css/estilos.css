@@ -1,0 +1,114 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: aqua;
+    max-width: 1280px;
+    /*evitar usar essa proporção que é mais exata, pode gerar problemas responssivos*/
+    margin: 0 auto;
+}
+
+/*Para chamar uma class, sempre colocar ". e nome da class"*/
+.carrossel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*proporção relativa, é melhor na hora da responssividade*/
+    z-index: -1;
+    /*Serve p colocar o conteudo que estava embaixo, na parte de cima*/
+}
+
+.informacoes {
+    display: none;
+}
+
+/*tem dois pontos pq tem duas classes, não pode esquecer dos pontos*/
+.informacoes.ativa {
+    display: block;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100vh;
+}
+
+/*quandoo tem esse espaço entre informacoes e h1, significa que vamos mexer no h1 que esta dentro de uma div ou classe informacoes*/
+.informacoes h1 {
+    font-size: 35px;
+    /*serve p definir o tamanho da fonte*/
+    color: #ffffff;
+    margin-bottom: 80px;
+    font-family: "GOT";
+    letter-spacing: 8px;
+    /*espaçamento entre as letras*/
+}
+
+@font-face {
+    font-family: "GOT";
+    src: url(../fontes/GOT.ttf);
+}
+
+.informacoes .descricao {
+    width: 49%;
+    font-size: 24px;
+    color: #ffffff;
+    line-height: 40px;
+    height: 300px;
+    overflow: auto;
+    padding-right: 15px;
+}
+
+.botoes-carrossel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.botoes-carrossel .botao {
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-color: #ffffff;
+}
+/*essa ultima parte quer dizer que vamos estilizar a parte que tem a classe botao selecionado que esta dentro da parte botoes-carrossel, por isso não tem espaço entre o ponto e a palavra*/
+.botoes-carrossel .botao.selecionado{
+    background-color: #1d8346;
+    
+}
+
+.imagem{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: none;
+}
+
+.imagem.ativa {
+    display: block;
+    animation: mudarImagem 0.7s;
+}
+
+@keyframes mudarImagem{
+    from {
+        opacity: 0.85;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/*depois do main, ou seja pseudo elemento*/
+main:after{
+    content: "123";
+    min-height: 100vh;
+    width: 100vw;
+    background-color: blue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+    z-index: -1;
+}
